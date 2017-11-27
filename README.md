@@ -6,5 +6,5 @@
 6) Enjoy!
 
 
-I pulled code from https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe, and Walker's 
-Datetime snippets into my final product. 
+I pulled code from https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe, along with Walker's 
+Datetime and Webdata snippets into my final product. 
