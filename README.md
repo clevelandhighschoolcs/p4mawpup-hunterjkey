@@ -1,7 +1,7 @@
 # Hunter Key's Website Scraper
 This Program takes the HTML code from a website that you gives it and chacks for changes in the number of characters within the whole HTML 
 code, and for changes within the first div tag of that website. This program isn't very good at looking at specific and numerous aspects 
-of a site, but as long as the website is secure (i.e. "https://"), the program can scrape it.
+of a site, but it can scrape a larger number/range of sites. As long as the website is secure (i.e. "https://"), the program can scrape it.
 
 I pulled code from https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe, along with Walker's 
 Datetime and Webdata snippets into my final product. 
