@@ -11,9 +11,9 @@ Datetime and Webdata snippets into my final product.
 ===============================================================================
 
 1) You NEED to have Python 2.7.14 downloaded on your computer.
-2) Unless you have one you want to use, create a folder on your desktop and create a virtual envirenment within it. Thic can be done by typing/pasting "c:\Python27\Scripts\virtualenv -p c:\Python27\python.exe .lpvenv" into the command line while in your folder.
-3) Leave the virtual envirenment alone for now and paste WebScraper.py (the other folder in this repository) into a Notepad++ document and save it into the folder that has your virtual environment under a name of your choice ("HunterWebScraper.py" is a good choice). ANYWHERE ELSE AND IT WON'T WORK.
-4) Open the virtual envirenment that houses Webscraper.py, open your virtual environment in the command line, and type/paste "pip install BeautifulSoup4" into the command line. This downloads BeautfulSoup, a python library that is essential to the functionality of this program.
+2) Unless you already have a virtual environment you want to use, create a folder on your desktop and create a virtual envirenment within it. This can be done by typing/pasting "c:\Python27\Scripts\virtualenv -p c:\Python27\python.exe .lpvenv" into the command line while within your folder.
+3) Paste WebScraper.py (the other folder in this repository) into a Notepad++ document and save it into the folder that has your virtual environment under a name of your choice ("HunterWebScraper.py" is a good choice). ANYWHERE ELSE AND IT WON'T WORK.
+4) Open the virtual envirenment that houses Webscraper.py in the command line. This can be done by typing/pasting ".lpvenv\Scripts\activate" into the command line while inside the virtual environment. After that, type/paste "pip install BeautifulSoup4" into the command line. This downloads BeautfulSoup, a python library that is essential to the functionality of this program.
 5) Wait for it to download.
 6) Type "python HunterWebScraper.py" (or whatever you named my file on your computer) into the command line. Do not include any other parameters, this will only lead to an error) and press enter.
 7) A screen will appear detailing my Web Scraper and how it works. A input will appear at the bottom asking for a link, ensure that the link that you enter starts with an "https://" because otherwise, you will encounter an error along the lines of "HTML forbidden." Enter the link and press enter.
