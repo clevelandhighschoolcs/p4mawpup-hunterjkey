@@ -31,8 +31,8 @@ print "this program analyzes the changes to a website's total character count an
 print "website's first <p> (paragrpah) tag during an interval and period of seconds " 
 print "you define. After that you will have to restart the program."
 print " "
-global cnt
 
+global cnt
 cnt = 0
 #These next 4 lines are to ensure that my program doesn't shut down the first time it runs through the webpage
 global prevdatastr
