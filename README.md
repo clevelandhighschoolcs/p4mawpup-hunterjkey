@@ -32,3 +32,8 @@ Version 2:
 7) A screen will appear detailing my Web Scraper and how it works. A input will appear at the bottom asking for a link, ensure that the link that you enter starts with an "https://" because otherwise, you will encounter an error along the lines of "HTML forbidden" (and simply adding it to the front of the link won't solve the problem, it needs to be a part of the original link you copied). Enter the link and press enter.
 8) There are two more inputs after this, one for the number of times the program runs and one for the time it waits between scaping, enter a value for each of these.
 9) If all the previous steps were followed correctly, the Scraper will begin running and scrape the website per your parameters.
+
+
+
+# Core Algorithm Flowchart
+![flowchart](https://github.com/hunterjkey/HunterKeyWebScraper/blob/master/Program%20Flow%20Chart.png?raw=true)
