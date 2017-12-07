@@ -28,8 +28,8 @@ Version 2:
   cd C:\Python27\Scripts
   pip install virtualenv
   cd C:\Users\"Username"\Documents\
-  mkdir Python
-  cd Python
+  mkdir HunterScraper
+  cd HunterScraper
   C:\Python27\Scripts\virtualenv.exe -p C:\Python27\python.exe
   .lpvenv\Scripts\activate
   ```
@@ -49,4 +49,4 @@ into the command line. This downloads BeautfulSoup, a python library that is ess
 
 # Core Algorithm Flowchart
 ![flowchart](https://github.com/hunterjkey/HunterKeyWebScraper/blob/master/Program%20Flow%20Chart.png?raw=true)
-
+(credit to Seth on the command to display this png)
