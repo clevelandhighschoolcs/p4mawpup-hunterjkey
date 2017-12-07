@@ -49,4 +49,5 @@ into the command line. This downloads BeautfulSoup, a python library that is ess
 
 # Core Algorithm Flowchart
 ![flowchart](https://github.com/hunterjkey/HunterKeyWebScraper/blob/master/Program%20Flow%20Chart.png?raw=true)
+
 (credit to Seth on the command to display this png)
