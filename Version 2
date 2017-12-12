@@ -1,12 +1,18 @@
 #My Webscraper File
 #
-
 from datetime import date
 from datetime import time
 from datetime import datetime
 import time 
 import urllib2
-from bs4 import BeautifulSoup
+try:
+	from bs4 import BeautifulSoup
+except Exception:
+	print "Unless you have BeautifulSoup downloaded, this program won't function" 
+	print "correctly. Use 'pip install BeautifulSoup4' to download it" 
+	print "(ideally in a virtual environment). You can also access more information at" 
+	print "'https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe'"
+	quit()
 
 print " "
 print "-------------------------------------------------------------------------------"
@@ -21,10 +27,7 @@ print " "
 print "By: Hunter Key, Period 4"
 print " "
 
-print "Unless you have BeautifulSoup downloaded, this program won't function" 
-print "correctly. Use 'pip install BeautifulSoup4' to download it" 
-print "(ideally in a virtual environment). You can also access more information at" 
-print "'https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe'"
+
 
 print " "
 print "this program analyzes the changes to a website's total character count and a " 
