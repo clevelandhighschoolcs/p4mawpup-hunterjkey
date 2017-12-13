@@ -51,9 +51,13 @@ print "For the link that you give this program, ensure that this link"
 print "begins with a 'https,' otherwise, the program will not be able to" 
 print "access the website and this program will only return an error.)"
 print " "
-lnk = raw_input("Enter your Link: ")
+lnk = str(raw_input("Enter your Link: "))
 inter = int(raw_input("How many times (interval) do you want me to remonitor your site?: "))
 tm = int(raw_input("How many seconds do you want me to wait until I remonitor your site?: "))
+
+if (tm < 5):
+	print("If the interval is that low, we will be spamming the page! Interval set to 5 seconds.")
+	tm = 5
 
 print " "
 print " "
@@ -112,7 +116,7 @@ def Beaut():
 	if (cnt == 0):
 		if (name == 1):
 			print "This programmed returned 'None' as the value of the <p>. Therefore, this program"
-			print "will not be able to accuratly give you an answer for this aspect of the website."
+			print "will not be able to accurately give you an answer for this aspect of the website."
 			print "For the remainder of this scraping, we will stop checking for this."
 			null = 1
 	if (null == 0):
