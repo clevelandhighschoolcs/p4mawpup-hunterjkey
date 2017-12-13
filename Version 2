@@ -1,18 +1,14 @@
 #My Webscraper File
 #
+
 from datetime import date
 from datetime import time
 from datetime import datetime
 import time 
 import urllib2
-try:
-	from bs4 import BeautifulSoup
-except Exception:
-	print "Unless you have BeautifulSoup downloaded, this program won't function" 
-	print "correctly. Use 'pip install BeautifulSoup4' to download it" 
-	print "(ideally in a virtual environment). You can also access more information at" 
-	print "'https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe'"
-	quit()
+from bs4 import BeautifulSoup
+import requests
+from twilio.rest import Client
 
 print " "
 print "-------------------------------------------------------------------------------"
@@ -27,7 +23,10 @@ print " "
 print "By: Hunter Key, Period 4"
 print " "
 
-
+print "Unless you have BeautifulSoup downloaded, this program won't function" 
+print "correctly. Use 'pip install BeautifulSoup4' to download it" 
+print "(ideally in a virtual environment). You can also access more information at" 
+print "'https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe'"
 
 print " "
 print "this program analyzes the changes to a website's total character count and a " 
@@ -43,6 +42,13 @@ prevdatastr = "0"
 global prevdivstr
 prevdivstr = "0"
 
+#Twilio Variables \/
+global account_sid 
+global auth_token
+global twilio_phone_number
+global my_phone_number
+#Twilio Variables /\
+
 #this value checks to make sure that Beaut() doesn't return null
 global null
 null = 0
@@ -51,16 +57,51 @@ print "For the link that you give this program, ensure that this link"
 print "begins with a 'https,' otherwise, the program will not be able to" 
 print "access the website and this program will only return an error.)"
 print " "
-lnk = str(raw_input("Enter your Link: "))
+lnk = raw_input("Enter your Link: ")
 inter = int(raw_input("How many times (interval) do you want me to remonitor your site?: "))
 tm = int(raw_input("How many seconds do you want me to wait until I remonitor your site?: "))
 
-if (tm < 5):
-	print("If the interval is that low, we will be spamming the page! Interval set to 5 seconds.")
-	tm = 5
+
+#------------\/---------TWILIO------------\/---------#
+print ''
+#These next 20 lines have to do with Twillo and allowing that to work
+print ' '
+print "Would you like me to send you a text message when I find a change(y/n)? (You will need to gave a twillo number for this to work.)"
+txtmessage = raw_input()
+if txtmessage == "y":
+	print ' '
+	print 'Enter your account SID (all of the following can be obtained on your Twillo dashboard)'
+    
+	account_sid = raw_input() 
+	
+	print ' '
+	print 'Enter your authentification token'
+	auth_token = raw_input()
+
+	print ' '
+	print 'Enter your Twillo phone number'
+	twilio_phone_number = raw_input()
+	if (twilio_phone_number[:2] != "+1"): #this ensures a "+1" is given at the beginning of the phone number
+		twilio_phone_number = "+1" + twilio_phone_number
+	
+	print ' '
+	print "Enter your own phone number"
+	my_phone_number = raw_input()
+	if (my_phone_number[:2] != "+1"): #this ensures a "+1" is given at the beginning of the phone number
+		my_phone_number = "+1" + my_phone_number
+	
+	#This makes sure that the info inputted is valid, if not, it skips this part.
+	if (len(account_sid) != 34) or (len(auth_token) != 32) or (len(twilio_phone_number) != 12) or (len(my_phone_number) != 12) or (twilio_phone_number[:2] != "+1") or (my_phone_number[:2] != "+1"):
+		Twillo_null = True #if this is triggered, the program will refrain from doing anything with the information given above
+		
+else:
+	Twillo_null = True
+#------------/\---------TWILIO------------/\---------#
+
 
 print " "
 print " "
+
 
 def characCount():
 	global prevdatastr
@@ -116,7 +157,7 @@ def Beaut():
 	if (cnt == 0):
 		if (name == 1):
 			print "This programmed returned 'None' as the value of the <p>. Therefore, this program"
-			print "will not be able to accurately give you an answer for this aspect of the website."
+			print "will not be able to accuratly give you an answer for this aspect of the website."
 			print "For the remainder of this scraping, we will stop checking for this."
 			null = 1
 	if (null == 0):
