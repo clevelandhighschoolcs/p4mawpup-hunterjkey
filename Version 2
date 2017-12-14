@@ -6,7 +6,14 @@ from datetime import time
 from datetime import datetime
 import time 
 import urllib2
-from bs4 import BeautifulSoup
+try:
+	from bs4 import BeautifulSoup
+except Exception:
+	print "Unless you have BeautifulSoup downloaded, this program won't function" 
+	print "correctly. Use 'pip install BeautifulSoup4' to download it" 
+	print "(ideally in a virtual environment). You can also access more information at" 
+	print "'https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe'"
+	quit()
 import requests
 from twilio.rest import Client
 
@@ -23,11 +30,6 @@ print " "
 print "By: Hunter Key, Period 4"
 print " "
 
-print "Unless you have BeautifulSoup downloaded, this program won't function" 
-print "correctly. Use 'pip install BeautifulSoup4' to download it" 
-print "(ideally in a virtual environment). You can also access more information at" 
-print "'https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe'"
-
 print " "
 print "this program analyzes the changes to a website's total character count and a " 
 print "website's first <p> (paragrpah) tag during an interval and period of seconds " 
@@ -43,6 +45,8 @@ global prevdivstr
 prevdivstr = "0"
 
 #Twilio Variables \/
+global Twillo_null
+Twillo_null = False
 global account_sid 
 global auth_token
 global twilio_phone_number
@@ -60,7 +64,6 @@ print " "
 lnk = raw_input("Enter your Link: ")
 inter = int(raw_input("How many times (interval) do you want me to remonitor your site?: "))
 tm = int(raw_input("How many seconds do you want me to wait until I remonitor your site?: "))
-
 
 #------------\/---------TWILIO------------\/---------#
 print ''
@@ -98,13 +101,16 @@ else:
 	Twillo_null = True
 #------------/\---------TWILIO------------/\---------#
 
-
 print " "
 print " "
-
 
 def characCount():
 	global prevdatastr
+	global Twillo_null
+	global account_sid 
+	global auth_token
+	global twilio_phone_number
+	global my_phone_number
 	
 	# open a connection to the URL
 	webUrl = urllib2.urlopen(lnk)
@@ -120,7 +126,6 @@ def characCount():
 	if (cnt == 0):
 		print "Finding base site to moniter."
 	
-	
 	if (cnt >= 1):
 		now = datetime.now()
 		print now.strftime("%a, %B %dth, %Y"), "at", now.strftime("%I:%M:%S %p")
@@ -128,15 +133,30 @@ def characCount():
 		print "there are",len(datastr),"characters in the HTML code of this current webpage."
 		if prevdatastr == len(datastr):
 			print "The website hasn't changed since you last checked it."
+			Charac_Count_Body = "The website hasn't changed since you last checked it."
 		else:
 			print "The website has changed in some manner."
-	
+			Charac_Count_Body = "The website has changed in some manner."
+		
+		#Code for sending the text message
+		if Twillo_null == False:
+			client = Client(account_sid, auth_token)
+			client.messages.create(
+				body=Charac_Count_Body,
+				to=my_phone_number,
+				from_=twilio_phone_number
+			)
 	prevdatastr = len(datastr)
-	
+
 def Beaut():
 	global prevdivstr
 	global yes
 	global null
+	global Twillo_null
+	global account_sid 
+	global auth_token
+	global twilio_phone_number
+	global my_phone_number
 	
 	#query the website and return the html to the variable page
 	page = urllib2.urlopen(lnk)
@@ -167,9 +187,20 @@ def Beaut():
 			if (prevdivstr == name):
 				print "The first <p> in this website has remained the same since this program last"
 				print "checked it."
+				BeautBody = "The first <p> in this website has remained the same since this program last checked it."
 			else:
 				print "This <p> and/or something inside of it has changed since this program last"
 				print "updated."
+				BeautBody = "This <p> and/or something inside of it has changed since this program last uppdated."
+			
+			#This code sends the text message
+			if Twillo_null == False:
+				client = Client(account_sid, auth_token)
+				client.messages.create(
+					body=BeautBody,
+					to=my_phone_number,
+					from_=twilio_phone_number
+				)
 		prevdivstr = name
 
 while(cnt <= inter):
