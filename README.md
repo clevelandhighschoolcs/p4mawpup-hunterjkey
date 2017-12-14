@@ -17,7 +17,7 @@ Program Flow Charts:
 ReadMe: 
 >> My ReadMe file that displays all of this
 
-Version 2:
+Version 3:
 >> The Python Code for my Web Scraper, install instructions are given below this.
 
 # Instructions:
@@ -35,7 +35,7 @@ Version 2:
 |  .lpvenv\Scripts\activate                                       |
 -------------------------------------------------------------------
  ```
-3) Paste Version 2 (It's stored within the folder "Final Versions," it's the second one there. DON'T USE VERSION ONE. It can also be found in "Version 2," the last file in the repository) into a Notepad++ document and save it into the folder that has your virtual environment under a name of your choice ("HunterWebScraper.py" is a good choice). ANYWHERE ELSE AND IT WON'T WORK.
+3) Paste Version 3 (It's stored within the folder "Final Versions," it's the second one there. DON'T USE VERSION ONE. It can also be found in "Version 3," the last file in the repository) into a Notepad++ document and save it into the folder that has your virtual environment under a name of your choice ("HunterWebScraper.py" is a good choice). ANYWHERE ELSE AND IT WON'T WORK.
 4) Open the virtual envirenment that houses "Version 2" in the command line. This can be done by typing/pasting ".lpvenv\Scripts\activate" into the command line while inside the folder containing the virtual environment. 
 5) After that, type/paste :
 ```
