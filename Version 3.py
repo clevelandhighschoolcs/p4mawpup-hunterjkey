@@ -6,6 +6,8 @@ from datetime import time
 from datetime import datetime
 import time 
 import urllib2
+import requests
+
 try:
 	from bs4 import BeautifulSoup
 except Exception:
@@ -14,8 +16,13 @@ except Exception:
 	print "(ideally in a virtual environment). You can also access more information at" 
 	print "'https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe'"
 	quit()
-import requests
-from twilio.rest import Client
+try:
+	from twilio.rest import Client
+except Exception:
+	print "Unless you have Twilio downloaded, this program won't function" 
+	print "correctly. Use 'pip install Twilio' to download it" 
+	print "(ideally in a virtual environment)."
+	quit()
 
 print " "
 print "-------------------------------------------------------------------------------"
@@ -75,21 +82,25 @@ if txtmessage == "y":
 	print ' '
 	print 'Enter your account SID (all of the following can be obtained on your Twillo dashboard)'
     
-	account_sid = raw_input() 
+	account_sid1 = raw_input() 
+	account_sid = "ACe11cb49076bb7e45eec7ebf2d369c8d1"
 	
 	print ' '
 	print 'Enter your authentification token'
-	auth_token = raw_input()
+	auth_token1 = raw_input()
+	auth_token = "92808e68d1f0ce2f8f172124a8f1a176"
 
 	print ' '
 	print 'Enter your Twillo phone number'
-	twilio_phone_number = raw_input()
+	twilio_phone_number1 = raw_input()
+	twilio_phone_number = "7028033640"
 	if (twilio_phone_number[:2] != "+1"): #this ensures a "+1" is given at the beginning of the phone number
 		twilio_phone_number = "+1" + twilio_phone_number
 	
 	print ' '
 	print "Enter your own phone number"
-	my_phone_number = raw_input()
+	my_phone_number1 = raw_input()
+	my_phone_number= "+14044587197"
 	if (my_phone_number[:2] != "+1"): #this ensures a "+1" is given at the beginning of the phone number
 		my_phone_number = "+1" + my_phone_number
 	
@@ -113,15 +124,22 @@ def characCount():
 	global my_phone_number
 	
 	# open a connection to the URL
-	webUrl = urllib2.urlopen(lnk)
-  
+	#webUrl = urllib2.urlopen(lnk)
+ 	try:
+		webUrl = urllib2.urlopen(lnk)
+	except Exception:
+		print "There is an error in scraping your websites. Check to make sure your website is valid and try again."
+		quit()
+	if(webUrl.getcode() == 200):
+		data = webUrl.read()
+	else:
+		print "There is an error in scraping your websites. Check to make sure your website is valid and try again."
+		quit()
   # get the result code and print it, this isn't applicable in a Scraper but might as well kep it for refernxe
 	#print str(webUrl.getcode())
   
   # read the data from the URL and print it
-	data = webUrl.read()
 	datastr = str(data)
-	
 	#this if statement checks to see if this isn't the first time we open the webpage
 	if (cnt == 0):
 		print "Finding base site to moniter."
@@ -160,7 +178,7 @@ def Beaut():
 	
 	#query the website and return the html to the variable page
 	page = urllib2.urlopen(lnk)
-	
+		
 	# parse the html using beautiful soap and store in variable `soup`
 	soup = BeautifulSoup(page, "html.parser")
 	
@@ -216,3 +234,4 @@ while(cnt <= inter):
 print "Thank you for using Hunter Key's WebScraper!"
 print " "
 print " "
+
