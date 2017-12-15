@@ -35,11 +35,11 @@ Version 3:
  ```
 3) Paste Version 3 (It's stored within the folder "Final Versions," it's the second one there. DON'T USE VERSION ONE. It can also be found in "Version 3," the last file in the repository) into a Notepad++ document and save it into the folder that has your virtual environment under a name of your choice ("HunterWebScraper.py" is a good choice). ANYWHERE ELSE AND IT WON'T WORK.
 4) Open the virtual envirenment that houses "Version 2" in the command line. This can be done by typing/pasting ".lpvenv\Scripts\activate" into the command line while inside the folder containing the virtual environment. 
-5) After that, type/paste :
+5) After that, type/paste:
 ```
   pip install BeautifulSoup4
 ```
-into the command line. This downloads BeautfulSoup, a python library that is essential to the functionality of this program. You will also need to type/paste
+into the command line. This downloads BeautfulSoup, a python library that is essential to the functionality of this program. You will also need to type/paste:
 ```
   pip install Twilio
 ```
