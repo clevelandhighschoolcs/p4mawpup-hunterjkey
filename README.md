@@ -25,23 +25,19 @@ Version 3:
 1) You NEED to have Python 2.7.14 downloaded on your computer.
 2) Unless you already have a virtual environment you want to use, create a folder on your desktop and create a virtual envirenment within it. This can be done by using the following commands (credit to Liam Dunbar):
  ```
--------------------------------------------------------------------
-|  cd C:\Python27\Scripts                                         |
-|  pip install virtualenv                                         |
-|  cd C:\Users\"Username"\Documents\                              |
-|  mkdir HunterScraper                                            |
-|  cd HunterScraper                                               |
-|  C:\Python27\Scripts\virtualenv.exe -p C:\Python27\python.exe   |
-|  .lpvenv\Scripts\activate                                       |
--------------------------------------------------------------------
+  cd C:\Python27\Scripts                                         
+  pip install virtualenv                                         
+  cd C:\Users\"Username"\Documents\                              
+  mkdir HunterScraper                                            
+  cd HunterScraper                                               
+  C:\Python27\Scripts\virtualenv.exe -p C:\Python27\python.exe   
+  .lpvenv\Scripts\activate                                       
  ```
 3) Paste Version 3 (It's stored within the folder "Final Versions," it's the second one there. DON'T USE VERSION ONE. It can also be found in "Version 3," the last file in the repository) into a Notepad++ document and save it into the folder that has your virtual environment under a name of your choice ("HunterWebScraper.py" is a good choice). ANYWHERE ELSE AND IT WON'T WORK.
 4) Open the virtual envirenment that houses "Version 2" in the command line. This can be done by typing/pasting ".lpvenv\Scripts\activate" into the command line while inside the folder containing the virtual environment. 
 5) After that, type/paste :
 ```
--------------------------------------------------------------------
-| pip install BeautifulSoup4                                      |
--------------------------------------------------------------------
+  pip install BeautifulSoup4
 ```
 into the command line. This downloads BeautfulSoup, a python library that is essential to the functionality of this program. Wait for it to download.
 
