@@ -39,7 +39,11 @@ Version 3:
 ```
   pip install BeautifulSoup4
 ```
-into the command line. This downloads BeautfulSoup, a python library that is essential to the functionality of this program. Wait for it to download.
+into the command line. This downloads BeautfulSoup, a python library that is essential to the functionality of this program. You will also need to type/paste
+```
+  pip install Twilio
+```
+Into the command line, this allows you to use Twilio, a online service that will allow you to recieve text updates on your phone. Wait for these both to download before continuing.
 
 6) Type "python HunterWebScraper.py" (or whatever you named my file on your computer) into the command line (Do not include any other parameters, this will only lead to an error) and press enter.
 7) A screen will appear detailing my Web Scraper and how it works. A input will appear at the bottom asking for a link, ensure that the link that you enter starts with an "https://" because otherwise, you will encounter an error along the lines of "HTML forbidden" (and simply adding it to the front of the link won't solve the problem, it needs to be a part of the original link you copied). Enter the link and press enter.
