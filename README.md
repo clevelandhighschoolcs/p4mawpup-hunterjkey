@@ -2,7 +2,7 @@
 This Program takes the HTML code from a website that you gives it and checks for changes in the number of characters within the whole HTML 
 code, and for changes within the first paragraph tag of that website. This program is multiuse and can scrape a larger number/range of sites. As long as the website is secure (i.e. "https://"), the program can scrape it.
 
-I pulled code from https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe, along with Walker's Datetime and Webdata snippets into my final product. 
+I pulled code from https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe, the Twilio tutorial at https://jamesbvaughan.com/python-twilio-scraping/, and Walker's Datetime and Webdata snippets into my final product. 
 
 # What Each File in this Repository is:
 Final Versions: 
