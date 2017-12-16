@@ -81,26 +81,21 @@ txtmessage = raw_input()
 if txtmessage == "y":
 	print ' '
 	print 'Enter your account SID (all of the following can be obtained on your Twillo dashboard)'
-    
-	account_sid1 = raw_input() 
-	account_sid = "ACe11cb49076bb7e45eec7ebf2d369c8d1"
-	
+	account_sid = raw_input() 
+
 	print ' '
 	print 'Enter your authentification token'
-	auth_token1 = raw_input()
-	auth_token = "92808e68d1f0ce2f8f172124a8f1a176"
+	auth_token = raw_input()
 
 	print ' '
 	print 'Enter your Twillo phone number'
-	twilio_phone_number1 = raw_input()
-	twilio_phone_number = "7028033640"
+	twilio_phone_number = raw_input()
 	if (twilio_phone_number[:2] != "+1"): #this ensures a "+1" is given at the beginning of the phone number
 		twilio_phone_number = "+1" + twilio_phone_number
 	
 	print ' '
 	print "Enter your own phone number"
-	my_phone_number1 = raw_input()
-	my_phone_number= "+14044587197"
+	my_phone_number = raw_input()
 	if (my_phone_number[:2] != "+1"): #this ensures a "+1" is given at the beginning of the phone number
 		my_phone_number = "+1" + my_phone_number
 	
