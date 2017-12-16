@@ -76,11 +76,11 @@ tm = int(raw_input("How many seconds do you want me to wait until I remonitor yo
 print ''
 #These next 20 lines have to do with Twillo and allowing that to work
 print ' '
-print "Would you like me to send you a text message when I find a change(y/n)? (You will need to gave a twillo number for this to work.)"
+print "Would you like me to send you a text message when I find a change(y/n)? (You will need to gave a Twilio number for this to work.)"
 txtmessage = raw_input()
 if txtmessage == "y":
 	print ' '
-	print 'Enter your account SID (all of the following can be obtained on your Twillo dashboard)'
+	print 'Enter your account SID (all of the following can be obtained on your Twilio dashboard)'
     
 	account_sid1 = raw_input() 
 	account_sid = "ACe11cb49076bb7e45eec7ebf2d369c8d1"
@@ -109,7 +109,7 @@ if txtmessage == "y":
 		Twillo_null = True #if this is triggered, the program will refrain from doing anything with the information given above
 		
 else:
-	Twillo_null = True
+	Twilio_null = True
 #------------/\---------TWILIO------------/\---------#
 
 print " "
@@ -117,7 +117,7 @@ print " "
 
 def characCount():
 	global prevdatastr
-	global Twillo_null
+	global Twilio_null
 	global account_sid 
 	global auth_token
 	global twilio_phone_number
@@ -157,7 +157,7 @@ def characCount():
 			Charac_Count_Body = "The website has changed in some manner."
 		
 		#Code for sending the text message
-		if Twillo_null == False:
+		if Twilio_null == False:
 			client = Client(account_sid, auth_token)
 			client.messages.create(
 				body=Charac_Count_Body,
@@ -170,7 +170,7 @@ def Beaut():
 	global prevdivstr
 	global yes
 	global null
-	global Twillo_null
+	global Twilio_null
 	global account_sid 
 	global auth_token
 	global twilio_phone_number
@@ -194,7 +194,7 @@ def Beaut():
 		
 	if (cnt == 0):
 		if (name == 1):
-			print "This programmed returned 'None' as the value of the <p>. Therefore, this program"
+			print "This program returned 'None' as the value of the <p>. Therefore, this program"
 			print "will not be able to accuratly give you an answer for this aspect of the website."
 			print "For the remainder of this scraping, we will stop checking for this."
 			null = 1
@@ -209,7 +209,7 @@ def Beaut():
 			else:
 				print "This <p> and/or something inside of it has changed since this program last"
 				print "updated."
-				BeautBody = "This <p> and/or something inside of it has changed since this program last uppdated."
+				BeautBody = "This <p> and/or something inside of it has changed since this program last updated."
 			
 			#This code sends the text message
 			if Twillo_null == False:
