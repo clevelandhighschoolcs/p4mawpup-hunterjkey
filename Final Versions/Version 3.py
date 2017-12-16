@@ -1,11 +1,13 @@
 #My Webscraper File
-#Version 3
+#
 
 from datetime import date
 from datetime import time
 from datetime import datetime
 import time 
 import urllib2
+import requests
+
 try:
 	from bs4 import BeautifulSoup
 except Exception:
@@ -14,8 +16,13 @@ except Exception:
 	print "(ideally in a virtual environment). You can also access more information at" 
 	print "'https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe'"
 	quit()
-import requests
-from twilio.rest import Client
+try:
+	from twilio.rest import Client
+except Exception:
+	print "Unless you have Twilio downloaded, this program won't function" 
+	print "correctly. Use 'pip install Twilio' to download it" 
+	print "(ideally in a virtual environment)."
+	quit()
 
 print " "
 print "-------------------------------------------------------------------------------"
@@ -65,7 +72,6 @@ lnk = raw_input("Enter your Link: ")
 inter = int(raw_input("How many times (interval) do you want me to remonitor your site?: "))
 tm = int(raw_input("How many seconds do you want me to wait until I remonitor your site?: "))
 
-
 #------------\/---------TWILIO------------\/---------#
 print ''
 #These next 20 lines have to do with Twillo and allowing that to work
@@ -75,9 +81,8 @@ txtmessage = raw_input()
 if txtmessage == "y":
 	print ' '
 	print 'Enter your account SID (all of the following can be obtained on your Twillo dashboard)'
-    
 	account_sid = raw_input() 
-	
+
 	print ' '
 	print 'Enter your authentification token'
 	auth_token = raw_input()
@@ -102,10 +107,8 @@ else:
 	Twillo_null = True
 #------------/\---------TWILIO------------/\---------#
 
-
 print " "
 print " "
-
 
 def characCount():
 	global prevdatastr
@@ -116,19 +119,25 @@ def characCount():
 	global my_phone_number
 	
 	# open a connection to the URL
-	webUrl = urllib2.urlopen(lnk)
-  
+	#webUrl = urllib2.urlopen(lnk)
+ 	try:
+		webUrl = urllib2.urlopen(lnk)
+	except Exception:
+		print "There is an error in scraping your websites. Check to make sure your website is valid and try again."
+		quit()
+	if(webUrl.getcode() == 200):
+		data = webUrl.read()
+	else:
+		print "There is an error in scraping your websites. Check to make sure your website is valid and try again."
+		quit()
   # get the result code and print it, this isn't applicable in a Scraper but might as well kep it for refernxe
 	#print str(webUrl.getcode())
   
   # read the data from the URL and print it
-	data = webUrl.read()
 	datastr = str(data)
-	
 	#this if statement checks to see if this isn't the first time we open the webpage
 	if (cnt == 0):
 		print "Finding base site to moniter."
-	
 	
 	if (cnt >= 1):
 		now = datetime.now()
@@ -151,7 +160,6 @@ def characCount():
 				from_=twilio_phone_number
 			)
 	prevdatastr = len(datastr)
-	
 
 def Beaut():
 	global prevdivstr
@@ -165,7 +173,7 @@ def Beaut():
 	
 	#query the website and return the html to the variable page
 	page = urllib2.urlopen(lnk)
-	
+		
 	# parse the html using beautiful soap and store in variable `soup`
 	soup = BeautifulSoup(page, "html.parser")
 	
@@ -207,7 +215,6 @@ def Beaut():
 					from_=twilio_phone_number
 				)
 		prevdivstr = name
-		
 
 while(cnt <= inter):
 	print "-----------------------------------------------------------------------------"
@@ -222,3 +229,4 @@ while(cnt <= inter):
 print "Thank you for using Hunter Key's WebScraper!"
 print " "
 print " "
+
